@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amr Elsaadany - Interior Designer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --gold-dark: #8B6E3A;
+    --charcoal: #1A1A18;
+    --warm-black: #121210;
+    --off-white: #F7F4EF;
+    --warm-gray: #8A8780;
+    --section-gap: 100px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── COVER ── */
+  #cover {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background: var(--warm-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://mir-s3-cdn-cf.behance.net/projects/max_808/013cae251651201.Y3JvcCw5MjQsNzIzLDc3LDIzNw.jpg') center/cover no-repeat;
+    opacity: 0.22;
+  }
+
+  .cover-ornament {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .cover-ornament-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .cover-inner {
+    position: relative;
+    text-align: center;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .cover-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 9vw, 96px);
+    font-weight: 900;
+    color: #F7F4EF;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+  }
+
+  .cover-rule {
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .cover-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 2vw, 18px);
+    font-weight: 300;
+    color: var(--gold-light);
+    letter-spacing: 0.12em;
+  }
+
+  .cover-location {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--warm-gray);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .cover-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--warm-gray);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--charcoal);
+    padding: 100px 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-photo-wrap {
+    position: relative;
+  }
+
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%) contrast(1.05);
+  }
+
+  .about-photo-frame {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(201,169,110,0.25);
+    transform: translate(12px, 12px);
+    pointer-events: none;
+  }
+
+  .about-content { color: var(--off-white); }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--off-white);
+    margin-bottom: 32px;
+  }
+
+  .about-content p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #B0ADA8;
+    margin-bottom: 20px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--warm-gray);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  .skill-tag {
+    font-size: 11px;
+    padding: 6px 14px;
+    border: 1px solid rgba(201,169,110,0.4);
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── PROJECTS SECTION HEADER ── */
+  #projects-header {
+    background: var(--off-white);
+    padding: 80px 0 48px;
+    text-align: center;
+  }
+
+  #projects-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+  }
+
+  #projects-header p {
+    font-size: 15px;
+    color: var(--warm-gray);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .gold-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 24px auto;
+  }
+
+  /* ── PROJECT SECTIONS ── */
+  .project-section {
+    margin-bottom: 2px;
+  }
+
+  .project-section:nth-child(odd) .project-layout {
+    flex-direction: row;
+  }
+
+  .project-section:nth-child(even) .project-layout {
+    flex-direction: row-reverse;
+    background: var(--charcoal);
+  }
+
+  .project-layout {
+    display: flex;
+    min-height: 580px;
+  }
+
+  .project-images {
+    flex: 1.3;
+    position: relative;
+    overflow: hidden;
+    background: #1A1A18;
+  }
+
+  .project-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+
+  .project-images:hover .project-main-img {
+    transform: scale(1.04);
+  }
+
+  .project-num {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .project-section:nth-child(even) .project-num {
+    right: auto;
+    left: 28px;
+  }
+
+  .project-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 56px;
+    background: var(--off-white);
+  }
+
+  .project-section:nth-child(even) .project-info {
+    background: var(--charcoal);
+    color: var(--off-white);
+  }
+
+  .project-category {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .project-category::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .project-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--charcoal);
+  }
+
+  .project-section:nth-child(even) .project-info h3 {
+    color: var(--off-white);
+  }
+
+  .project-info p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #6A6762;
+    margin-bottom: 32px;
+  }
+
+  .project-section:nth-child(even) .project-info p {
+    color: #9A9893;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+    padding-left: 16px;
+    border-left: 2px solid var(--gold);
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .meta-key {
+    color: var(--warm-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    min-width: 80px;
+    font-weight: 500;
+  }
+
+  .meta-val {
+    color: var(--charcoal);
+    font-weight: 400;
+  }
+
+  .project-section:nth-child(even) .meta-val {
+    color: var(--off-white);
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--gold);
+    transition: opacity 0.2s;
+    align-self: flex-start;
+  }
+
+  .project-link:hover { opacity: 0.7; }
+
+  .project-link::after {
+    content: '→';
+    font-size: 14px;
+  }
+
+  /* Project image gallery strip */
+  .img-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    height: 100%;
+  }
+
+  .img-strip .project-main-img {
+    height: 50%;
+    object-fit: cover;
+  }
+
+  .img-strip .project-main-img:first-child {
+    grid-column: 1 / -1;
+    height: 60%;
+  }
+
+  /* ── CONTACT / FOOTER ── */
+  #contact {
+    background: var(--warm-black);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: 'AE';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 300px;
+    font-weight: 900;
+    color: rgba(201,169,110,0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  #contact .section-label {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  #contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    color: var(--off-white);
+    line-height: 1.05;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  #contact p {
+    font-size: 15px;
+    color: var(--warm-gray);
+    max-width: 440px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+    position: relative;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--gold-light);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: var(--gold); }
+
+  .contact-link .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  footer {
+    background: #0A0A08;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  footer .footer-copy {
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .about-photo-wrap { max-width: 260px; margin: 0 auto; }
+    .project-layout,
+    .project-section:nth-child(even) .project-layout {
+      flex-direction: column;
+    }
+    .project-images { min-height: 300px; }
+    .project-info { padding: 40px 28px; }
+    .about-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+    .container { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     COVER
+══════════════════════════════ -->
+<section id="cover">
+  <div class="cover-ornament"></div>
+  <div class="cover-ornament-bottom"></div>
+
+  <div class="cover-inner">
+    <span class="cover-eyebrow">Interior Design Portfolio</span>
+
+    <h1 class="cover-name">Amr<br>Elsaadany</h1>
+
+    <div class="cover-rule"></div>
+
+    <p class="cover-title">Interior Designer</p>
+    <p class="cover-location">Cairo, Egypt - Est. 2021</p>
+  </div>
+
+  <div class="cover-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     ABOUT
+══════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-photo-wrap">
+        <img
+          class="about-photo"
+          src="amr_elsaadany_portrait.png"
+          alt="Portrait of Amr Elsaadany"
+        />
+        <div class="about-photo-frame"></div>
+      </div>
+
+      <div class="about-content">
+        <span class="section-label">About Me</span>
+        <h2>Crafting spaces that speak for themselves.</h2>
+
+        <p>
+          Amr Elsaadany is a Cairo-based interior designer with a passion for transforming spaces into immersive experiences. His work spans residential interiors, luxury retail environments, media studios, and bespoke bathrooms - each project a study in material, light, and intentional living.
+        </p>
+        <p>
+          With a foundation from the Modern University for Technology & Information (MTI) and hands-on experience at Perfect Company for Design and Contracting, Amr approaches every brief by listening first - then designing with conviction.
+        </p>
+
+        <div class="skills-row">
+          <span class="skill-tag">Residential</span>
+          <span class="skill-tag">Retail</span>
+          <span class="skill-tag">Studio Design</span>
+          <span class="skill-tag">3D Visualization</span>
+          <span class="skill-tag">Concept Design</span>
+          <span class="skill-tag">Lighting</span>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-num">4+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">50</span>
+            <span class="stat-label">Appreciations</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">665</span>
+            <span class="stat-label">Profile Views</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     PROJECTS HEADER
+══════════════════════════════ -->
+<section id="projects-header">
+  <span class="section-label" style="color: var(--gold-dark);">Selected Works</span>
+  <h2>Projects</h2>
+  <div class="gold-divider"></div>
+  <p>A curated selection of interior design projects spanning residential, commercial, and media spaces.</p>
+</section>
+
+
+<!-- ══════════════════════════════
+     PROJECT 1 — Modern Bathroom
+══════════════════════════════ -->
+<div class="project-section">
+  <div class="project-layout">
+
+    <div class="project-images">
+      <span class="project-num">01</span>
+      <img
+        class="project-main-img"
+        src="https://mir-s3-cdn-cf.behance.net/projects/max_808/013cae251651201.Y3JvcCw5MjQsNzIzLDc3LDIzNw.jpg"
+        alt="Modern Bathroom interior design by Amr Elsaadany"
+        loading="lazy"
+        onerror="this.style.background='#2a2a26'; this.style.display='block'"
+      />
+    </div>
+
+    <div class="project-info">
+      <span class="project-category">Residential Interior</span>
+      <h3>Modern Bathroom</h3>
+
+      <div class="project-meta">
+        <div class="meta-row">
+          <span class="meta-key">Type</span>
+          <span class="meta-val">Residential Bathroom Design</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Style</span>
+          <span class="meta-val">Modern / Contemporary</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Views</span>
+          <span class="meta-val">52 views - 10 appreciations</span>
+        </div>
+      </div>
+
+      <p>
+        A sophisticated bathroom design that redefines personal sanctuary. This project explores the intersection of minimalist form and sensory richness - using restrained material palettes, precision-cut stone surfaces, and a controlled lighting scheme to create a spa-like retreat within a domestic setting.
+      </p>
+
+      <a class="project-link" href="https://www.behance.net/gallery/251651201/Modern-Bathroom" target="_blank">
+        View on Behance
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PROJECT 2 — Cartier Retail
+══════════════════════════════ -->
+<div class="project-section">
+  <div class="project-layout">
+
+    <div class="project-images">
+      <span class="project-num">02</span>
+      <img
+        class="project-main-img"
+        src="https://mir-s3-cdn-cf.behance.net/projects/max_808/b95bd1243011143.Y3JvcCw1MzMsNDE3LDE3OCwxNTg.jpeg"
+        alt="Cartier retail store interior design by Amr Elsaadany"
+        loading="lazy"
+        onerror="this.style.background='#2a2a26'"
+      />
+    </div>
+
+    <div class="project-info">
+      <span class="project-category">Luxury Retail</span>
+      <h3>Cartier Retail Concept</h3>
+
+      <div class="project-meta">
+        <div class="meta-row">
+          <span class="meta-key">Type</span>
+          <span class="meta-val">Luxury Retail Interior</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Brand</span>
+          <span class="meta-val">Cartier - Concept Design</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Views</span>
+          <span class="meta-val">335 views - 21 appreciations</span>
+        </div>
+      </div>
+
+      <p>
+        A luxury retail concept for the iconic Cartier brand, translating the maison's heritage of craftsmanship into a spatial experience. The design language draws from jewellery's precision - clean geometries, reflective surfaces, and a curated interplay of light - to frame each piece as a centrepiece in its own right.
+      </p>
+
+      <a class="project-link" href="https://www.behance.net/gallery/243011143/cartier-retail" target="_blank">
+        View on Behance
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PROJECT 3 — TV Studio Design
+══════════════════════════════ -->
+<div class="project-section">
+  <div class="project-layout">
+
+    <div class="project-images">
+      <span class="project-num">03</span>
+      <img
+        class="project-main-img"
+        src="https://mir-s3-cdn-cf.behance.net/projects/max_808/bfe3b6242430393.Y3JvcCw0OTAxLDM4MzQsMTQ0MywyNDI.png"
+        alt="TV Studio interior design"
+        loading="lazy"
+        onerror="this.style.background='#2a2a26'"
+      />
+    </div>
+
+    <div class="project-info">
+      <span class="project-category">Media & Entertainment</span>
+      <h3>TV Studio Design</h3>
+
+      <div class="project-meta">
+        <div class="meta-row">
+          <span class="meta-key">Type</span>
+          <span class="meta-val">Broadcast Studio Interior</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Style</span>
+          <span class="meta-val">Contemporary / High-tech</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Views</span>
+          <span class="meta-val">223 views - 13 appreciations</span>
+        </div>
+      </div>
+
+      <p>
+        A bold, broadcast-ready studio design that balances technical rigour with visual impact. The spatial concept prioritises camera-optimised geometry and dynamic lighting zones, while maintaining an energetic and branded on-screen presence. Designed collaboratively with a multidisciplinary team.
+      </p>
+
+      <a class="project-link" href="https://www.behance.net/gallery/242430393/tv-studio-design" target="_blank">
+        View on Behance
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PROJECT 4 — Residential Design
+══════════════════════════════ -->
+<div class="project-section">
+  <div class="project-layout">
+
+    <div class="project-images">
+      <span class="project-num">04</span>
+      <img
+        class="project-main-img"
+        src="https://mir-s3-cdn-cf.behance.net/projects/max_808/e44095234729667.Y3JvcCwxMjAwLDkzOCwwLDI4Mg.png"
+        alt="Residential interior design by Amr Elsaadany"
+        loading="lazy"
+        onerror="this.style.background='#2a2a26'"
+      />
+    </div>
+
+    <div class="project-info">
+      <span class="project-category">Residential Interior</span>
+      <h3>Residential Design</h3>
+
+      <div class="project-meta">
+        <div class="meta-row">
+          <span class="meta-key">Type</span>
+          <span class="meta-val">Full Residential Interior</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Style</span>
+          <span class="meta-val">Contemporary Modern</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Views</span>
+          <span class="meta-val">55 views - 6 appreciations</span>
+        </div>
+      </div>
+
+      <p>
+        A complete residential interior project that prioritises the way people actually inhabit their homes. Spaces flow naturally from public to private, with material choices - warm timbers, textured plaster, natural stone - grounding the home in comfort without sacrificing sophistication.
+      </p>
+
+      <a class="project-link" href="https://www.behance.net/gallery/234729667/Residential-design" target="_blank">
+        View on Behance
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     CONTACT
+══════════════════════════════ -->
+<section id="contact">
+  <div class="container" style="position:relative;">
+    <span class="section-label">Get in Touch</span>
+    <h2>Let's build<br>something remarkable.</h2>
+    <p>Available for freelance projects and collaborations in Cairo and beyond.</p>
+
+    <div class="contact-links">
+      <a class="contact-link" href="https://www.behance.net/amrelsaadany1" target="_blank">
+        <span class="dot"></span>
+        behance.net/amrelsaadany1
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/amr-elsaadany-8690531bb/" target="_blank">
+        <span class="dot"></span>
+        LinkedIn Profile
+      </a>
+      <a class="contact-link" href="#">
+        <span class="dot"></span>
+        Cairo, Egypt - Available for Freelance
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Amr Elsaadany</span>
+  <span class="footer-copy">Interior Designer - Cairo, Egypt - 2024</span>
+</footer>
+
+</body>
+</html>
